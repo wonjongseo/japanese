@@ -4,6 +4,7 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import javax.swing.*;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -51,6 +52,8 @@ public class ExcelParser {
 
         } catch (IOException e) {
             e.printStackTrace();
+            JOptionPane.showMessageDialog(Main.mainFrame, e.getMessage());
+
         }
         return japanese;
     }

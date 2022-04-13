@@ -2,11 +2,13 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class LevelButtonListener implements ActionListener {
 
     public static int randomIndex =  0;
-
+    public static String strRemainderCount = "";
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -36,8 +38,18 @@ public class LevelButtonListener implements ActionListener {
     public void showJapanVoca(Main main, Japanese japanese, String level) {
 
         randomIndex = (int) (Math.random() * (japanese.getTotalCount() - 1));
+        Map<Integer, Boolean> checkRemainderCount = new HashMap<>();
+
 
         JFrame subFrame = main.createFrame(500, 200,level);
+
+        checkRemainderCount.put(randomIndex, true);
+
+        strRemainderCount =  checkRemainderCount.size()  + " / " +String.valueOf(japanese.getTotalCount() - checkRemainderCount.size() + 1);
+        JLabel labelRemainderCount = new JLabel(strRemainderCount);
+        labelRemainderCount.setBounds(400, 20, 100, 20);;
+        subFrame.add(labelRemainderCount);
+
 
         JLabel labelKanji = new JLabel();
 
@@ -94,6 +106,7 @@ public class LevelButtonListener implements ActionListener {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         randomIndex = (int) (Math.random() * (japanese.getTotalCount() - 1));
+
                         labelHiragana.setText("");
                         labelMeans.setText("");
 
@@ -105,6 +118,13 @@ public class LevelButtonListener implements ActionListener {
 
                         buttonMeans.setVisible(true);
                         buttonHiragana.setVisible(true);
+
+                        
+                        checkRemainderCount.put(randomIndex, true);
+
+                        strRemainderCount =  checkRemainderCount.size() + " / " +String.valueOf(japanese.getTotalCount() - checkRemainderCount.size() + 1);
+                        labelRemainderCount.setText(strRemainderCount);
+
                     }
                 }
         );

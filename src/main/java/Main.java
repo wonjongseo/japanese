@@ -5,16 +5,19 @@ import java.io.File;
 
 public class Main {
     public static String path;
+    public  static  JFrame mainFrame = createFrame(380, 500, "JLPT");
     public static void main(String[] args) {
 
     // /Users/wonjongseo/aStudy/coding/pythonProject
-
+        System.out.println("System.getProperty(\"user.dir\") = " + System.getProperty("user.dir"));
 
         Main main = new Main();
 
-        JFrame mainFrame = main.createFrame(380, 500, "JLPT");
 
         path = JOptionPane.showInputDialog(mainFrame,"Input Excel file path");
+        if ( path == null) {
+            path = System.getProperty("user.dir");
+        }
 
         JLabel title = new JLabel("Select JLPT Level");
         title.setBounds(130, 50, 300, 40);
@@ -78,7 +81,7 @@ public class Main {
 
     }
 
-    public JFrame createFrame(int width, int height,String level) {
+    static public JFrame createFrame(int width, int height,String level) {
 
         JFrame jFrame = new JFrame("JLPT level " + level);
 
