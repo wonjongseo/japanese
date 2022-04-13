@@ -47,3 +47,5 @@ nextボタンをクリックするとランダムに次の漢字が出ます。 
 
 <img width="383" alt="스크린샷 2022-04-13 오전 1 41 58" src="https://user-images.githubusercontent.com/63527605/163014302-f89ffbba-4312-4970-9976-5727a7736202.png">
 <img width="374" alt="스크린샷 2022-04-13 오전 1 42 04" src="https://user-images.githubusercontent.com/63527605/163014312-e1997221-63f1-4dff-961e-05d8c50bb07c.png">
+
+- 추후 레벨안에서도 세부로 나눌 예정
